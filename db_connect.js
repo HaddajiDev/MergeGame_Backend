@@ -5,7 +5,7 @@ const URI = process.env.URI;
 const connect = async () => {
     try {
         const result = await mongoose.connect(URI, {
-            dbName: 'GameJam'
+            dbName: 'MergeGame'
         });
         console.log("Connected to MongoDB");
     } catch (error) {
