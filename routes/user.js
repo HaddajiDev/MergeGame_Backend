@@ -6,6 +6,7 @@ const User = require('../models/user');
 
 
 router.post('/', async(req, res) => {
+    
     const {username, score, wins} = req.body;
     try {
         const user = new User({

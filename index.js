@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
-
-
-
 const cors = require("cors");
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use(cors());
 require('dotenv').config();
 
 app.use(express.json());
@@ -12,7 +14,7 @@ app.use(express.json());
 const connect = require('./db_connect');
 connect();
 
-app.use(cors());
+
 
 app.use('/user', require("./routes/user"));
 
