@@ -6,9 +6,9 @@ const User = require('../models/user');
 
 
 router.post('/', async(req, res) => {
-    const username = req.query.username;
-    const score = req.query.score;
-    const wins = req.query.wins;
+    const username = req.body.username;
+    const score = req.body.score;
+    const wins = req.body.wins;
     try {
         const user = new User({
             username: username,
