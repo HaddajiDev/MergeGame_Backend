@@ -91,7 +91,7 @@ router.get('/playerWins', async(req, res) => {
 
         const user = await User.findById(id);
         if(user){
-            res.send({wins: user.totalWins, username: user.username});
+            res.send({totalWins: user.totalWins, username: user.username});
         }
         else
         {
