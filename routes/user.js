@@ -106,7 +106,8 @@ router.get('/playerWins', async(req, res) => {
 
 router.get('/topPlayers/score', async(req, res) => {
     try {
-        const topUsers = await User.find().sort({score: -1}).limit(10);
+        const limit = req.query.limit;        
+        const topUsers = await User.find().sort({score: -1}).limit(limit);
         res.send({users: topUsers});
     } catch (error) {
         res.status(500).send({ message: "Error" });
@@ -115,7 +116,8 @@ router.get('/topPlayers/score', async(req, res) => {
 
 router.get('/topPlayers/wins', async(req, res) => {
     try {
-        const topUsers = await User.find().sort({totalWins: -1}).limit(10);
+        const limit = req.query.limit;
+        const topUsers = await User.find().sort({totalWins: -1}).limit(limit);
         res.send({users: topUsers});
     } catch (error) {
         res.status(500).send({ message: "Error" });
